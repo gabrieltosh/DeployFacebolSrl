@@ -31,6 +31,7 @@
 
         <div class="row">
             <div class="col-md-8">
+                @if(Auth::user()->tipo=='Administrador' || Auth::user()->tipo=='SAdministrador')
                 {{Form::open(['route'=>'publicaciones.store','method'=>'POST','files'=>TRUE])}}
                 <div class="card wall-posting">
                     <div class="card-body card-padding">
@@ -58,6 +59,7 @@
                     </ul>
                 </div>
                 {!!Form::close()!!}
+                @endif
                 <div class="card" v-for="publicacion in publicaciones">
                     <div class="card-header">
                         <div class="media">
